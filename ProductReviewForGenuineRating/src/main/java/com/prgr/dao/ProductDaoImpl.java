@@ -26,9 +26,7 @@ public class ProductDaoImpl implements ProductDao {
 
 	public int updateProduct(Product product) {
 
-		// entityManager.getCredentials().begin();
-		// entityManager.merge(arg0)
-		// entityManager.getCredentials().commit();
+		
 		return 1;
 	}
 
@@ -41,6 +39,11 @@ public class ProductDaoImpl implements ProductDao {
 	
 
 	public Map compareProduct(Product p1, Product p2) {
+		return null;
+	}
+
+	public Product viewSingleProduct(Product product) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }

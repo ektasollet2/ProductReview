@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import com.prgr.model.Product;
 import com.prgr.model.Review;
 import com.prgr.utility.JPAUtility1;
 
@@ -51,6 +52,11 @@ public class ReviewDaoImpl implements ReviewDao{
 	}
 
 	public Review deleteRatings(Review ratings) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Review> viewAllReview(Product productId) {
 		// TODO Auto-generated method stub
 		return null;
 	}

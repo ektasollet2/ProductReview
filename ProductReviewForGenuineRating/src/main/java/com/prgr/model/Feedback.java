@@ -12,7 +12,7 @@ public class Feedback {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "FEEDBACK_ID")
-	private Long feedbackId;
+	private int feedbackId;
 	@Column(name = "FEEDBACK_ABOUT")
 	private String feedbackAbout;
 	@Column(name = "FEEDBACK_DESCRIPTION")
@@ -20,17 +20,17 @@ public class Feedback {
 	
 	public Feedback()
 	{}
-	public Feedback(Long feedbackId,String feedbackAbout,String feedbackDescription)
+	public Feedback(int feedbackId,String feedbackAbout,String feedbackDescription)
 	{
 		super();
 		this.feedbackId = feedbackId;
 		this.feedbackAbout = feedbackAbout;
 		this.feedbackDescription=feedbackDescription;
 	}
-	public Long getFeedbackId() {
+	public int getFeedbackId() {
 		return feedbackId;
 	}
-	public void setFeedbackId(Long feedbackId) {
+	public void setFeedbackId(int feedbackId) {
 		this.feedbackId = feedbackId;
 	}
 	public String getFeedbackAbout() {

@@ -14,9 +14,9 @@ public class Review {
 	@Column(name = "REVIEW_ID")
 	private int reviewId;
 	@Column(name = "PRODUCT_ID")
-	private Long productId;
+	private int productId;
 	@Column(name = "USER_ID")
-	private Long userId;
+	private int userId;
 	@Column(name = "REVIEW_RATE")
 	private int reviewRate;
 	@Column(name = "REVIEW_DESCRPTION")
@@ -24,7 +24,7 @@ public class Review {
 	
 	public Review()
 	{}
-	public Review(int reviewId,Long productId,Long userId,int reviewRate,String reviewDescrption)
+	public Review(int reviewId,int productId,int userId,int reviewRate,String reviewDescrption)
 	{
 		super();
 		this.reviewId = reviewId;
@@ -39,16 +39,16 @@ public class Review {
 	public void setReviewId(int reviewId) {
 		this.reviewId = reviewId;
 	}
-	public Long getProductId() {
+	public int getProductId() {
 		return productId;
 	}
-	public void setProductId(Long productId) {
+	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	public Long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(Long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public int reviewRate() {

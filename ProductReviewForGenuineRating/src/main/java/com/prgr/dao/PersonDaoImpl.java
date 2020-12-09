@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import com.prgr.model.Person;
 import com.prgr.utility.JPAUtility1;
 
-public class PersonDaoImpl implements IPersonDao{
+public class PersonDaoImpl implements PersonDao{
 	private EntityManager entityManager;
 	
 	public PersonDaoImpl(){
@@ -35,6 +35,10 @@ public class PersonDaoImpl implements IPersonDao{
 		Query query=entityManager.createQuery("from Person");
 		List<Person> list=query.getResultList();
 		return list;
+	}
+	public Person viewPerson(int personId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	 
 }

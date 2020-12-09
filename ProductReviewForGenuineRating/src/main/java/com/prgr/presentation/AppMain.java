@@ -2,13 +2,16 @@ package com.prgr.presentation;
 import java.util.Scanner;
 
 import com.prgr.model.Person;
+import com.prgr.model.Product;
 import com.prgr.service.PersonServiceImpl;
+import com.prgr.service.ProductServiceImpl;
 
 
 public class AppMain {
 
 	public static void main(String[] args) {
 		PersonServiceImpl pservice=new PersonServiceImpl();
+		ProductServiceImpl productService=new ProductServiceImpl(); 
 		Scanner scanner=new Scanner(System.in);				/* input */
 		Scanner option=new Scanner(System.in);				/* option selection*/
 		
@@ -43,7 +46,25 @@ public class AppMain {
 					    	switch(choice)
 					    	{
 					    	case 1:	
+					    		System.out.println("Add Product Page");
+					    		System.out.println("Enter product details: ");
+					    		System.out.println("Product Name: ");	
+					    		String productName=scanner.next();
+					    		System.out.println("Product Category: ");
+					    		String productCategory=scanner.next();
+					    		System.out.println("Seller Name");
+					    		String sellerName=scanner.next();
+					    		System.out.println("Product Description");
+					    		String productDescription=scanner.next();
+					    		scanner.next();
+					    		System.out.println("Product Price: ");
+					    		Long productPrice=scanner.nextLong();
+					    		Product product=new Product(productName,productCategory,sellerName,productDescription,productPrice);
+					    		productService.addProduct(product);
+					    		break;
 					    	case 2:
+					    		System.out.println(productService.viewAllProduct()+"\n");
+					    		break;
 					    	case 3:
 					    	case 4:
 					    		System.out.println(pservice.viewAllPerson()+"\n");

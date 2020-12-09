@@ -20,13 +20,17 @@ public class FeedbackServiceImpl implements FeedbackService {
 		return fdao.addFeedback(feedback);
 	}
 
-	public List<Feedback> viewAllFeedback(List<Feedback> list) {
+	public List<Feedback> viewAllFeedback() {
 		
-		return fdao.viewAllFeedback(list);
+		return fdao.viewAllFeedback();
 	}
 
 	public Feedback deleteFeedback(int feedbackId) {
 		return fdao.deleteFeedback(feedbackId);
+	}
+	public List<Feedback> viewAllFeedback(List<Feedback> list) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

@@ -37,4 +37,9 @@ public class FeedbackDaoImpl implements FeedbackDao{
 		return fb;
 	}
 
+	public List<Feedback> viewAllFeedback() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

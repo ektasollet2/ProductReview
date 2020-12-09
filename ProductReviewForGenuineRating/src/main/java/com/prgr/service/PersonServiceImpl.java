@@ -5,7 +5,7 @@ import java.util.List;
 import com.prgr.dao.PersonDaoImpl;
 import com.prgr.model.Person;
 
-public class PersonServiceImpl implements IPersonService {
+public class PersonServiceImpl implements PersonService {
 	
 	private PersonDaoImpl personDao;
 	
