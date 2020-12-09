@@ -55,7 +55,7 @@ public class AppMain {
 					    		System.out.println("Seller Name");
 					    		String sellerName=scanner.next();
 					    		System.out.println("Product Description");
-					    		String productDescription=scanner.next();
+					    		String productDescription=scanner.nextLine();
 					    		scanner.next();
 					    		System.out.println("Product Price: ");
 					    		Long productPrice=scanner.nextLong();
@@ -63,11 +63,28 @@ public class AppMain {
 					    		productService.addProduct(product);
 					    		break;
 					    	case 2:
-					    		System.out.println(productService.viewAllProduct()+"\n");
+					    		System.out.println("1.View All Produts\n2.View Based on Category\n3.View a Single Product");
+					    		int productChoice=option.nextInt();
+					    		switch(productChoice){
+					    		case 1:
+					    			System.out.println("All Products Available.\n"+productService.viewAllProduct()+"\n");
+						    		break;
+					    		case 2:
+					    			System.out.print("Enter the Category to view the products:");
+					    			String prodCategory=scanner.next();
+					    			System.out.println("Product Based on"+prodCategory+":\n"+productService.viewBasedOnCategory(prodCategory));
+					    			break;
+					    		case 3:
+					    			System.out.print("Enter the Id of the product to View:");
+					    			int prodId=scanner.nextInt();
+					    			System.out.println("Product:"+productService.viewSingleProduct(prodId));
+					    			break;
+					    		}
 					    		break;
+					    		
 					    	case 3:
 					    	case 4:
-					    		System.out.println(pservice.viewAllPerson()+"\n");
+					    		System.out.println("All Users:"+pservice.viewAllPerson()+"\n");
 					    		break;
 					    	case 5:
 					    	case 6:

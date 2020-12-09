@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "PERSON")
 public class Person {
 	@Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    //@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="PERSON_ID")
 	private int personId;
 	@Column(name = "PERSON_FIRST_NAME")
@@ -33,10 +33,13 @@ public class Person {
 
 	}
 
-	public Person(String firstName, String lastName,
+	
+
+	public Person(int personId, String firstName, String lastName,
 			String address, Long phoneNumber, String emailId, String password,
 			String role) {
 		super();
+		this.personId = personId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -45,6 +48,8 @@ public class Person {
 		this.password = password;
 		this.role = role;
 	}
+
+
 
 	public int getPersonId() {
 		return personId;

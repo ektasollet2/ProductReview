@@ -5,8 +5,8 @@ import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
-import com.prgr.model.Person;
 import com.prgr.model.Product;
 import com.prgr.utility.JPAUtility1;
 
@@ -42,8 +42,15 @@ public class ProductDaoImpl implements ProductDao {
 		return null;
 	}
 
-	public Product viewSingleProduct(Product product) {
-		// TODO Auto-generated method stub
-		return null;
+	public Product viewSingleProduct(int prodId) {
+		Product person=entityManager.find(Product.class, prodId);
+		return person;
+	}
+
+	public List<Product> viewBasedOnCategory(String Category) {
+		Query query=entityManager.createQuery("from Product where Product_Category=?");
+		query.setParameter(1,Category);
+		List<Product> product=query.getResultList();
+		return product;
 	}
 }

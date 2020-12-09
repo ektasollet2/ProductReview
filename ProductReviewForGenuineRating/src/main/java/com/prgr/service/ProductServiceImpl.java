@@ -31,8 +31,12 @@ public class ProductServiceImpl implements ProductService {
 		return null;
 	}
 
-	public Product viewSingleProduct(Product product) {
+	public Product viewSingleProduct(int prodId) {
+		Product person=productDao.viewSingleProduct(prodId);
+		return person;
+	}
+	public List<Product> viewBasedOnCategory(String Category) {
 		// TODO Auto-generated method stub
-		return null;
+		return productDao.viewBasedOnCategory(Category);
 	}
 }
