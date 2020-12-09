@@ -27,6 +27,7 @@ public class AppMain {
 			int adminOption=option.nextInt();
 			switch(adminOption) {
 			/* ---------------------Admin Page----------------------- */
+			/* ---------------------Admin Page----------------------- */
 					
 			case 1:
 					System.out.println("Admin login Page");
