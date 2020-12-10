@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "FEEDBACK")
 public class Feedback {
 	@Id
-//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "FEEDBACK_ID")
 	private int feedbackId;
 	@Column(name = "FEEDBACK_ABOUT")
@@ -21,10 +21,10 @@ public class Feedback {
 	public Feedback()
 	{}
 	
-	public Feedback(int feedbackId, String feedbackAbout,
+	public Feedback(String feedbackAbout,
 			String feedbackDescription) {
 		super();
-		this.feedbackId = feedbackId;
+		//this.feedbackId = feedbackId;
 		this.feedbackAbout = feedbackAbout;
 		this.feedbackDescription = feedbackDescription;
 	}

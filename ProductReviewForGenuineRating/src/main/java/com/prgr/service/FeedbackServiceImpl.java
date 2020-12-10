@@ -10,7 +10,7 @@ import com.prgr.model.Feedback;
 
 
 public class FeedbackServiceImpl implements FeedbackService {
-	FeedbackDao fdao;
+	private FeedbackDao fdao;
 	public FeedbackServiceImpl() 
 	{
 		fdao= new FeedbackDaoImpl();
@@ -27,10 +27,6 @@ public class FeedbackServiceImpl implements FeedbackService {
 
 	public Feedback deleteFeedback(int feedbackId) {
 		return fdao.deleteFeedback(feedbackId);
-	}
-	public List<Feedback> viewAllFeedback(List<Feedback> list) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 }

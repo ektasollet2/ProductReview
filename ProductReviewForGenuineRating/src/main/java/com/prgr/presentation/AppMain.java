@@ -3,9 +3,12 @@ package com.prgr.presentation;
 import java.util.Map;
 import java.util.Scanner;
 
+import com.prgr.model.Feedback;
 import com.prgr.model.Person;
 import com.prgr.model.Product;
 import com.prgr.model.Review;
+import com.prgr.service.FeedbackService;
+import com.prgr.service.FeedbackServiceImpl;
 import com.prgr.service.PersonService;
 import com.prgr.service.PersonServiceImpl;
 import com.prgr.service.ProductService;
@@ -19,6 +22,7 @@ public class AppMain {
 		PersonService pservice = new PersonServiceImpl();
 		ProductService productService = new ProductServiceImpl();
 		ReviewService reviewService = new ReviewServiceImpl();
+		FeedbackService feedbackService=new FeedbackServiceImpl();
 
 		Scanner scanner = new Scanner(System.in); /* Integer input */
 		Scanner scannerString = new Scanner(System.in); /* String input */
@@ -51,7 +55,7 @@ public class AppMain {
 					System.out.println("Login Successful");
 					do {
 						System.out
-								.print("1.Add Product\n2.View Product\n3.Edit Product\n4.View User\n5.View Feedback\n6.logout\n");
+								.print("1.Add Product\n2.View Product\n3.Edit Product\n4.View User\n5.Feedback\n6.logout\n");
 						System.out.println("Enter the choice");
 						int choice = option.nextInt();
 						switch (choice) {
@@ -143,6 +147,19 @@ public class AppMain {
 									+ pservice.viewAllPerson() + "\n");
 							break;
 						case 5:
+							System.out.println("Feedback Page");
+							System.out.println("Menu\n1.View Feedbacks\n2.Delete Feedback");
+							int feedbackChoice=scanner.nextInt();
+							switch(feedbackChoice){
+							case 1:
+								System.out.println("All Feedbacks:"+feedbackService.viewAllFeedback());
+								break;
+							case 2:
+								System.out.print("Enter the Feedback Id to delete:");
+								int feedbackDelete=scanner.nextInt();
+								System.out.println(feedbackService.deleteFeedback(feedbackDelete));
+								System.out.println("Feedback Successfully Deleted");
+							}
 							
 						case 6:
 							break;
@@ -202,7 +219,7 @@ public class AppMain {
 					System.out.println("Login Successful");
 					do {
 						System.out
-								.print("Menu\n1.View All Products\n2.View Category\n3.Compare Product\n4.Update Details\n5.Give Feedback\n5.logout\n");
+								.print("Menu\n1.View All Products\n2.View Category\n3.Compare Product\n4.Update Details\n5.Give Feedback\n6.logout\n");
 						System.out.println("Enter the choice");
 						int choice = option.nextInt();
 						switch (choice) {
@@ -291,9 +308,12 @@ public class AppMain {
 							break;
 						case 5:
 							System.out.println("Feedback Page");
-							String feedbackSystem;
-							System.out.println("Give feedback about system: ");
-							feedbackSystem = scanner.nextLine();
+							System.out.print("Give feedback about system or product: ");
+							String feedbackAbout = scanner.next();
+							System.out.println("Enter the FeedbackDescription:");
+							String feedbackDescription=scannerString.nextLine();
+							Feedback feedback=new Feedback(feedbackAbout,feedbackDescription);
+							feedbackService.addFeedback(feedback);
 							break;
 						case 6:
 						}

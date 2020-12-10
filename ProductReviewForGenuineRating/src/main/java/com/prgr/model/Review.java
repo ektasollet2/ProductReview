@@ -4,15 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-//@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
 @Table(name = "REVIEW")
 public class Review {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "REVIEW_ID")
 	private int reviewId;
 	@Column(name = "PRODUCT_ID")

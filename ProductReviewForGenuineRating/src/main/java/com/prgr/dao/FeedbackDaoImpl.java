@@ -21,14 +21,6 @@ public class FeedbackDaoImpl implements FeedbackDao{
 		entityManager.getTransaction().commit();
 		return feedback;
 	}
-
-	public List<Feedback> viewAllFeedback(List<Feedback> list) {
-		TypedQuery<Feedback> query =
-			      entityManager.createQuery("SELECT c FROM Feedback c", Feedback.class);
-		List<Feedback> list1=query.getResultList();
-		return list1;
-	}
-
 	public Feedback deleteFeedback(int feedbackId) {
 		entityManager.getTransaction().begin();
 		Feedback fb=entityManager.find(Feedback.class, feedbackId);
