@@ -6,8 +6,8 @@ import com.prgr.model.Product;
 import com.prgr.model.Review;
 
 public interface ReviewService {
-	public Review addReview(Review review);
+	public Review addReviewRating(Review review);
 	public Review deleteReview(int reviewId);
-	public int getOverallRating(Review review);
-	public List<Review> viewAllRatings(Product productId);
+	public int getOverallRating(int productId);
+	public List<Review> viewAllReviewRating(int productId);
 }

@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import com.prgr.model.Product;
+import com.prgr.model.Review;
 
 public interface ProductDao {
 	public Product addProduct(Product product);
-	public int updateProduct(Product product);
-	public Map compareProduct(Product p1,Product p2 );
+	public Product updateProduct(Product product);
+	public Product deleteProduct(int product);
+	public Map<Product,Product> compareProduct(int productId1,int productId2 );
 	public List<Product> viewAllProduct();
-	public Product viewSingleProduct(int prodID);
+	public Map<Product,List<Review>> viewSingleProduct(int prodID);
 	public List<Product> viewBasedOnCategory(String Category);
 }

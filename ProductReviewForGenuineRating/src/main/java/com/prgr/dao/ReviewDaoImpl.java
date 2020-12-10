@@ -3,9 +3,8 @@ package com.prgr.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 
-import com.prgr.model.Product;
 import com.prgr.model.Review;
 import com.prgr.utility.JPAUtility1;
 
@@ -15,34 +14,14 @@ public class ReviewDaoImpl implements ReviewDao{
 	public ReviewDaoImpl(){
 		entityManager=JPAUtility1.getEntityManager();
 	}
-
-	public Review addReview( Review review) {
+	
+	public Review addReviewRating(Review review) {
 		entityManager.getTransaction().begin();
 		entityManager.persist(review);
 		entityManager.getTransaction().commit();
 		return review;
 	}
-
-	public List<Review> viewAllReview(List<Review> list) {
-		TypedQuery<Review> query =
-			      entityManager.createQuery("SELECT c FROM Review c", Review.class);
-		List<Review> list1=query.getResultList();
-		return list1;
-	}
-	public Review addRatings( Review ratings) {
-		entityManager.getTransaction().begin();
-		entityManager.persist(ratings);
-		entityManager.getTransaction().commit();
-		return ratings;
-	}
-
-	public List<Review> viewAllRatings(List<Review> list) {
-		TypedQuery<Review> query =
-			      entityManager.createQuery("SELECT c FROM Review c", Review.class);
-		List<Review> list1=query.getResultList();
-		return list1;
-	}
-
+	
 	public Review deleteReview(int reviewId) {
 		entityManager.getTransaction().begin();
 		Review pr=entityManager.find(Review.class, reviewId);
@@ -51,14 +30,16 @@ public class ReviewDaoImpl implements ReviewDao{
 		return pr;
 	}
 
-	public Review deleteRatings(Review ratings) {
+	public int getOverallRating(int productId) {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
-	public List<Review> viewAllReview(Product productId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Review> viewAllReviewRating(int productId) {
+		Query query =entityManager.createQuery("Select Review_Rate,Review_Description from Review where Product_Id=?");
+		query.setParameter(1,productId);
+		List<Review> list1=query.getResultList();
+		return list1;
 	}
 
 	}

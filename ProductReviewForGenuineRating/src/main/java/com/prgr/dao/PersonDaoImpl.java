@@ -23,12 +23,12 @@ public class PersonDaoImpl implements PersonDao{
 		return person;
 	}
 
-	public int updatePerson(Person person) {
+public Person updatePerson(Person person) {
 		
-//		entityManager.getTransaction().begin();
-//		entityManager.merge(arg0)
-//		entityManager.getTransaction().commit();
-		return 1;
+		entityManager.getTransaction().begin();
+		entityManager.merge(person);
+		entityManager.getTransaction().commit();
+		return person;
 	}
 
 	public List<Person> viewAllPerson() {

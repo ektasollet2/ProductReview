@@ -4,13 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
+//@SequenceGenerator(name="seq", initialValue=1, allocationSize=100)
 @Table(name = "REVIEW")
 public class Review {
 	@Id
-	//@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	@Column(name = "REVIEW_ID")
 	private int reviewId;
 	@Column(name = "PRODUCT_ID")
@@ -24,10 +26,10 @@ public class Review {
 	
 	public Review()
 	{}
-	public Review(int reviewId,int productId,int userId,int reviewRate,String reviewDescrption)
+	public Review(int productId,int userId,int reviewRate,String reviewDescrption)
 	{
 		super();
-		this.reviewId = reviewId;
+		//this.reviewId = reviewId;
 		this.productId = productId;
 		this.userId=userId;
 		this.reviewRate=reviewRate;

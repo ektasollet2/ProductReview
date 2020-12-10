@@ -7,30 +7,32 @@ import com.prgr.model.Review;
 
 
 public class ReviewServiceImpl implements ReviewService {
-	ReviewDaoImpl rdao;
+	ReviewDaoImpl reviewDao;
 	
 	public ReviewServiceImpl(){
-		rdao=new ReviewDaoImpl();
+		reviewDao=new ReviewDaoImpl();
 	}
 
-	public Review addReview(Review review) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	public Review deleteReview(int reviewId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public int getOverallRating(Review review) {
+	public int getOverallRating(int productId) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public List<Review> viewAllRatings(Product productId) {
+	public List<Review> viewAllReviewRating(int productId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	public Review addReviewRating(Review review) {
+		// TODO Auto-generated method stub
+		return reviewDao.addReviewRating(review);
 	}
 
 }

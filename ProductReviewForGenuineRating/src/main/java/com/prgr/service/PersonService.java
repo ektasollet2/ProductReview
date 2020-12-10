@@ -6,6 +6,6 @@ import com.prgr.model.Person;
 
 public interface PersonService {
 	public Person addPerson(Person person);
-	 public int updatePerson(Person person);
+	 public Person updatePerson(Person person);
 	 public List<Person> viewAllPerson();
 }

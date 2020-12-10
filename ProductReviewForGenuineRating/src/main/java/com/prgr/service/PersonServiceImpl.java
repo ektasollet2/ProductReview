@@ -18,8 +18,8 @@ public class PersonServiceImpl implements PersonService {
 		return person;
 	}
 
-	public int updatePerson(Person person) {
-		return 0;
+	public Person updatePerson(Person person) {
+		return personDao.updatePerson(person);
 	}
 
 	public List<Person> viewAllPerson() {
